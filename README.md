@@ -28,7 +28,7 @@ Study for Scikit-learn Machine learing
 
 - [D-Tree](#dtree)
 - [RF](#rf)
-- [GNB](#gnb)
+- [NB](#nb)
 - [K-NN](#knn)
 - [Ada](#ada)
 - [QDA](#qda)
@@ -105,12 +105,38 @@ def c_random_forest(data, target):
 
 <hr>
 
-<a name='gnb'></a>
+<a name='nb'></a>
 
-### GNB
+### NB
 
-```bash
+**_Gaussian Naive Bayes_**
 
+```python
+def gaussian_nb(data, target):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
+
+    model = GaussianNB()
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    evaluate = model_evaluation(y_test, y_predict)
+
+    return evaluate
+
+```
+
+**_Multinomial Naive Bayes_**
+
+```python
+def multinomial_nb(data, target):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
+
+    model = MultinomialNB()
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    evaluate = model_evaluation(y_test, y_predict)
+    return evaluate
 ```
 
 <hr>

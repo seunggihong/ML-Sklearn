@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import ML.DTree as dt
 import ML.RF as rf
+import ML.NB as nb
 
 
 if __name__ == "__main__":
@@ -21,6 +22,7 @@ if __name__ == "__main__":
 
     # ML model
 
+    # Decision Tree
     # c_dt = dt.c_decision_tree(heart_X, heart_y)
     # r_dt = dt.r_decision_tree(wine_X, wine_y)
     # print(c_dt)
@@ -30,8 +32,13 @@ if __name__ == "__main__":
     # plt.scatter(labels, c_dt, c='red')
     # plt.scatter(labels, r_dt, c='gray')
     # plt.show()
-    c_rf = rf.c_random_forest(heart_X, heart_y)
-    r_rf = rf.r_random_forest(wine_X, wine_y)
 
-    print(c_rf)
-    print(r_rf)
+    # Random Forest
+    # c_rf = rf.c_random_forest(heart_X, heart_y)
+    # r_rf = rf.r_random_forest(wine_X, wine_y)
+    # print(c_rf)
+    # print(r_rf)
+
+    # NaiveBayes
+    gau_nb = nb.gaussian_nb(heart_X, heart_y)
+    print(gau_nb)
