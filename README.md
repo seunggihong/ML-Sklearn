@@ -109,7 +109,7 @@ def c_random_forest(data, target):
 
 ### NB
 
-**_Gaussian Naive Bayes_**
+**_Gaussian Naive Bayes(GNB)_**
 
 ```python
 def gaussian_nb(data, target):
@@ -125,7 +125,7 @@ def gaussian_nb(data, target):
 
 ```
 
-**_Multinomial Naive Bayes_**
+**_Multinomial Naive Bayes(MNB)_**
 
 ```python
 def multinomial_nb(data, target):
@@ -177,10 +177,34 @@ def c_knn(data, target, k=3):
 
 <a name='ada'></a>
 
-### Ada
+### Ada **_(Adaptive Boosting)_**
 
-```bash
+```python
+# Regression
+def r_ada(data, target):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
 
+    model = AdaBoostRegressor()
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    score = reg_model_evaluation(y_test, y_predict)
+
+    return score
+```
+
+```python
+# Classification
+def c_ada(data, target):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
+
+    model = AdaBoostClassifier()
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    evaluate = model_evaluation(y_test, y_predict)
+
+    return evaluate
 ```
 
 <hr>

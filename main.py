@@ -4,7 +4,7 @@ import Algorithm.DTree as dt
 import Algorithm.RF as rf
 import Algorithm.NB as nb
 import Algorithm.KNN as knn
-
+import Algorithm.Ada as ada
 
 if __name__ == "__main__":
     # Heart failure prediction data (Classification)
@@ -45,7 +45,13 @@ if __name__ == "__main__":
     # print(gau_nb)
 
     # KNN
-    r_nn = knn.r_knn(wine_X, wine_y)
-    c_nn = knn.c_knn(heart_X, heart_y)
-    print(r_nn)
-    print(c_nn)
+    # r_nn = knn.r_knn(wine_X, wine_y)
+    # c_nn = knn.c_knn(heart_X, heart_y)
+    # print(r_nn)
+    # print(c_nn)
+
+    # Ada Boosting
+    r_ad = ada.r_ada(wine_X, wine_y)
+    c_ad = ada.c_ada(heart_X, heart_y)
+    print(r_ad)
+    print(c_ad)
