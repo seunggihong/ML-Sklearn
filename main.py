@@ -1,18 +1,29 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
-import ML.Machine as ml
+import matplotlib.pyplot as plt
+import ML.Dtree as dt
+
 
 if __name__ == "__main__":
+    # Heart failure prediction data (Classification)
+    classify_df = pd.read_csv('./data/heart.csv', encoding='utf-8')
+    classify_df = pd.DataFrame(classify_df)
 
-    # Data load
-    df = pd.read_csv('./data/winequality-red.csv', encoding='utf-8')
-    wine_df = pd.DataFrame(df)
-    wine_df.info()
+    classify_df = pd.get_dummies(classify_df, dtype='int')
 
-    X = wine_df.iloc[:, :11]
-    y = wine_df['quality']
+    heart_X = classify_df.drop('HeartDisease', axis=1)
+    heart_y = classify_df.pop('HeartDisease')
 
-    x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=.2)
+    # Red wine quality data (Regression)
+    reg_df = pd.read_csv('./data/winequality-red.csv', encoding='utf-8')
+    wine_X = reg_df.iloc[:, :11]
+    wine_y = reg_df['quality']
 
-    # Decision tree
-    dtree = ml.decision_tree(x_train, x_test, y_train, y_test)
+    # ML model
+    c_dt = dt.c_decision_tree(heart_X, heart_y)
+    r_dt = dt.r_decision_tree(wine_X, wine_y)
+    print(c_dt)
+    print(r_dt)
+    # labels = ['acccuracy', 'precision', 'recall', 'f1']
+    # plt.scatter(labels, c_dt, c='red')
+    # plt.scatter(labels, r_dt, c='gray')
+    # plt.show()
