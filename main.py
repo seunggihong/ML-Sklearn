@@ -6,6 +6,7 @@ import Algorithm.NB as nb
 import Algorithm.KNN as knn
 import Algorithm.Ada as ada
 import Algorithm.DA as da
+import Algorithm.SVM as svm
 
 if __name__ == "__main__":
     # Heart failure prediction data (Classification)
@@ -58,7 +59,13 @@ if __name__ == "__main__":
     # print(c_ad)
 
     # Discriminant Analysis
-    liner_da = da.lda(heart_X, heart_y)
-    quad_da = da.qda(heart_X, heart_y)
-    print(liner_da)
-    print(quad_da)
+    # liner_da = da.lda(heart_X, heart_y)
+    # quad_da = da.qda(heart_X, heart_y)
+    # print(liner_da)
+    # print(quad_da)
+
+    # SVM
+    reg_svm = svm.r_svm(wine_X, wine_y)
+    class_svm = svm.c_svm(heart_X, heart_y)
+    print(reg_svm)
+    print(class_svm)
