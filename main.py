@@ -8,6 +8,7 @@ import Algorithm.Ada as ada
 import Algorithm.DA as da
 import Algorithm.SVM as svm
 import Algorithm.Votting as votting
+import Algorithm.Bagging as bagging
 
 from sklearn.svm import SVC, SVR
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
@@ -27,9 +28,9 @@ if __name__ == "__main__":
     wine_X = reg_df.iloc[:, :11]
     wine_y = reg_df['quality']
 
-    # ML model
+    # # ML model
 
-    # Decision Tree
+    # # Decision Tree
     # c_dt = dt.c_decision_tree(heart_X, heart_y)
     # r_dt = dt.r_decision_tree(wine_X, wine_y)
     # print(c_dt)
@@ -40,50 +41,55 @@ if __name__ == "__main__":
     # plt.scatter(labels, r_dt, c='gray')
     # plt.show()
 
-    # Random Forest
+    # # Random Forest
     # c_rf = rf.c_random_forest(heart_X, heart_y)
     # r_rf = rf.r_random_forest(wine_X, wine_y)
     # print(c_rf)
     # print(r_rf)
 
-    # NaiveBayes
+    # # NaiveBayes
     # gau_nb = nb.gaussian_nb(heart_X, heart_y)
     # print(gau_nb)
 
-    # KNN
+    # # KNN
     # r_nn = knn.r_knn(wine_X, wine_y)
     # c_nn = knn.c_knn(heart_X, heart_y)
     # print(r_nn)
     # print(c_nn)
 
-    # Ada Boosting
+    # # Ada Boosting
     # r_ad = ada.r_ada(wine_X, wine_y)
     # c_ad = ada.c_ada(heart_X, heart_y)
     # print(r_ad)
     # print(c_ad)
 
-    # Discriminant Analysis
+    # # Discriminant Analysis
     # liner_da = da.lda(heart_X, heart_y)
     # quad_da = da.qda(heart_X, heart_y)
     # print(liner_da)
     # print(quad_da)
 
-    # SVM
+    # # SVM
     # reg_svm = svm.r_svm(wine_X, wine_y)
     # class_svm = svm.c_svm(heart_X, heart_y)
     # print(reg_svm)
     # print(class_svm)
 
-    # Votting
-    r_vote = votting.r_votting(wine_X, wine_y,
-                               est=[
-                                   ('SVM', SVR()),
-                                   ('KNN', KNeighborsRegressor())
-                               ])
-    c_vote = votting.c_votting(heart_X, heart_y,
-                               est=[
-                                   ('SVM', SVC()),
-                                   ('KNN', KNeighborsClassifier())
-                               ])
-    print(r_vote)
-    print(c_vote)
+    # # Votting
+    # r_vote = votting.r_votting(wine_X, wine_y,
+    #                            est=[
+    #                                ('SVM', SVR()),
+    #                                ('KNN', KNeighborsRegressor())
+    #                            ])
+    # c_vote = votting.c_votting(heart_X, heart_y,
+    #                            est=[
+    #                                ('SVM', SVC()),
+    #                                ('KNN', KNeighborsClassifier())
+    #                            ])
+    # print(r_vote)
+    # print(c_vote)
+
+    r_bag = bagging.r_bagging(wine_X, wine_y, est=SVR())
+    c_bag = bagging.c_bagging(heart_X, heart_y, est=SVC())
+    print(r_bag)
+    print(c_bag)
