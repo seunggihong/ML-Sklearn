@@ -2,11 +2,11 @@
 ![Static Badge](https://img.shields.io/badge/sklearn-1.3.2-%23F7931E?style=plastic&logo=scikitlearn&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/pandas-2.1.2-%23150458?style=plastic&logo=scikitlearn&logoColor=white)
 
-# ML-Sklearn
+## ML-Sklearn
 
-Study for Scikit-learn Machine learing
+This repository uses scikit-learn to implement regression and classification models for machine learning algorithms. Then, evaluate each model and save and compare evaluation metrics. The data used in the regression analysis uses kaggle's 'red wine quilty', and the data used in the classification problem uses kaggle's 'Heart Failure Prediction'.
 
-#
+<hr>
 
 ## Data
 
