@@ -51,9 +51,9 @@ def r_decision_tree(data, target):
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
 
-    evaluate = model_evaluation(y_test, y_predict)
+    score = reg_model_evaluation(y_test, y_predict)
 
-    return evaluate
+    return score
 ```
 
 ```python

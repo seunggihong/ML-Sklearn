@@ -1,6 +1,8 @@
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from utils import model_evaluation
+from sklearn.metrics import mean_squared_error, r2_score
+from utils import model_evaluation, reg_model_evaluation
+import numpy as np
 
 
 def r_decision_tree(data, target):
@@ -10,9 +12,9 @@ def r_decision_tree(data, target):
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
 
-    evaluate = model_evaluation(y_test, y_predict)
+    score = reg_model_evaluation(y_test, y_predict)
 
-    return evaluate
+    return score
 
 
 def c_decision_tree(data, target):
