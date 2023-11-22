@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import ML.DTree as dt
 import ML.RF as rf
 import ML.NB as nb
+import ML.KNN as knn
 
 
 if __name__ == "__main__":
@@ -40,5 +41,11 @@ if __name__ == "__main__":
     # print(r_rf)
 
     # NaiveBayes
-    gau_nb = nb.gaussian_nb(heart_X, heart_y)
-    print(gau_nb)
+    # gau_nb = nb.gaussian_nb(heart_X, heart_y)
+    # print(gau_nb)
+
+    # KNN
+    r_nn = knn.r_knn(wine_X, wine_y)
+    c_nn = knn.c_knn(heart_X, heart_y)
+    print(r_nn)
+    print(c_nn)

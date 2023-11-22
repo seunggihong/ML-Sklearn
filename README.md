@@ -143,10 +143,34 @@ def multinomial_nb(data, target):
 
 <a name='knn'></a>
 
-### K-NN
+### K-NN **_(K Nearest Neighbors)_**
 
-```bash
+```python
+# Regression
+def r_knn(data, target, k=3):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
 
+    model = KNeighborsRegressor(n_neighbors=k)
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    score = reg_model_evaluation(y_test, y_predict)
+
+    return score
+```
+
+```python
+# Classification
+def c_knn(data, target, k=3):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
+
+    model = KNeighborsClassifier(n_neighbors=k)
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    evaluate = model_evaluation(y_test, y_predict)
+
+    return evaluate
 ```
 
 <hr>
