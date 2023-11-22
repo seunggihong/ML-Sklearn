@@ -22,13 +22,16 @@ if __name__ == "__main__":
     # ML model
 
     # c_dt = dt.c_decision_tree(heart_X, heart_y)
-    r_dt = dt.r_decision_tree(wine_X, wine_y)
+    # r_dt = dt.r_decision_tree(wine_X, wine_y)
     # print(c_dt)
-    print(r_dt)
+    # print(r_dt)
 
     # labels = ['acccuracy', 'precision', 'recall', 'f1']
     # plt.scatter(labels, c_dt, c='red')
     # plt.scatter(labels, r_dt, c='gray')
     # plt.show()
-    r_rf = rf.c_random_forest(heart_X, heart_y)
+    c_rf = rf.c_random_forest(heart_X, heart_y)
+    r_rf = rf.r_random_forest(wine_X, wine_y)
+
+    print(c_rf)
     print(r_rf)
