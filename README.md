@@ -51,12 +51,9 @@ def r_decision_tree(data, target):
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
 
-    acccuracy = accuracy_score(y_test, y_predict)
-    precision = precision_score(y_test, y_predict, average='weighted')
-    recall = recall_score(y_test, y_predict, average='weighted')
-    f1 = f1_score(y_test, y_predict, average='weighted')
+    evaluate = model_evaluation(y_test, y_predict)
 
-    return [acccuracy, precision, recall, f1]
+    return evaluate
 ```
 
 ```python
@@ -68,12 +65,9 @@ def c_decision_tree(data, target):
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
 
-    acccuracy = accuracy_score(y_test, y_predict)
-    precision = precision_score(y_test, y_predict, average='weighted')
-    recall = recall_score(y_test, y_predict, average='weighted')
-    f1 = f1_score(y_test, y_predict, average='weighted')
+    evaluate = model_evaluation(y_test, y_predict)
 
-    return [acccuracy, precision, recall, f1]
+    return evaluate
 ```
 
 <hr>

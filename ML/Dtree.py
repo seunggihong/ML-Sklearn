@@ -1,6 +1,6 @@
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 from sklearn.model_selection import train_test_split
+from utils import model_evaluation
 
 
 def r_decision_tree(data, target):
@@ -10,12 +10,9 @@ def r_decision_tree(data, target):
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
 
-    acccuracy = accuracy_score(y_test, y_predict)
-    precision = precision_score(y_test, y_predict, average='weighted')
-    recall = recall_score(y_test, y_predict, average='weighted')
-    f1 = f1_score(y_test, y_predict, average='weighted')
+    evaluate = model_evaluation(y_test, y_predict)
 
-    return [acccuracy, precision, recall, f1]
+    return evaluate
 
 
 def c_decision_tree(data, target):
@@ -25,9 +22,6 @@ def c_decision_tree(data, target):
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
 
-    acccuracy = accuracy_score(y_test, y_predict)
-    precision = precision_score(y_test, y_predict, average='weighted')
-    recall = recall_score(y_test, y_predict, average='weighted')
-    f1 = f1_score(y_test, y_predict, average='weighted')
+    evaluate = model_evaluation(y_test, y_predict)
 
-    return [acccuracy, precision, recall, f1]
+    return evaluate
