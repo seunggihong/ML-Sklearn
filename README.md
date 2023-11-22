@@ -31,7 +31,7 @@ Study for Scikit-learn Machine learing
 - [NB](#nb)
 - [K-NN](#knn)
 - [Ada](#ada)
-- [QDA](#qda)
+- [DA](#da)
 - [SVM](#svm)
 - [Voting](#voting)
 - [Bagging](#bagging)
@@ -209,12 +209,38 @@ def c_ada(data, target):
 
 <hr>
 
-<a name='qda'></a>
+<a name='da'></a>
 
-### QDA
+### DA **_(Discriminant Analysis)_**
 
-```bash
+**_Linear Discriminant Analysis(LDA)_**
 
+```python
+def lda(data, target):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
+
+    model = LinearDiscriminantAnalysis()
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    evaluate = model_evaluation(y_test, y_predict)
+
+    return evaluate
+```
+
+**_Quadratic Discriminant Analysis(QDA)_**
+
+```python
+def qda(data, target):
+    x_train, x_test, y_train, y_test = train_test_split(data, target)
+
+    model = QuadraticDiscriminantAnalysis()
+    model.fit(x_train, y_train)
+    y_predict = model.predict(x_test)
+
+    evaluate = model_evaluation(y_test, y_predict)
+
+    return evaluate
 ```
 
 <hr>
@@ -248,3 +274,7 @@ def c_ada(data, target):
 ```
 
 <hr>
+
+## Reference
+
+- <a href='https://scikit-learn.org/stable/user_guide.html'>scikit-learn docs</a>
