@@ -1,6 +1,6 @@
 from sklearn.naive_bayes import GaussianNB, MultinomialNB
 from sklearn.model_selection import train_test_split
-from utils import model_evaluation
+from utils.evaluation import model_evaluation
 
 
 def gaussian_nb(data, target):
@@ -23,4 +23,5 @@ def multinomial_nb(data, target):
     y_predict = model.predict(x_test)
 
     evaluate = model_evaluation(y_test, y_predict)
+
     return evaluate

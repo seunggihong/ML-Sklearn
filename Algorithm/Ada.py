@@ -1,6 +1,6 @@
 from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor
 from sklearn.model_selection import train_test_split
-from utils import model_evaluation, reg_model_evaluation
+from utils.evaluation import model_evaluation, reg_model_evaluation
 
 
 def r_ada(data, target):

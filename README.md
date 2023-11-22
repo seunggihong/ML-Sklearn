@@ -24,17 +24,54 @@ This repository uses scikit-learn to implement regression and classification mod
 
 <hr>
 
+## Usage
+
+```bash
+$ python3 main.py
+                --problem={regression or classification}
+                --model={ALGORITHM_NAME}
+```
+
+<hr>
+
 ## Algorithm
 
 - [D-Tree](#dtree)
+  ```bash
+   --model=dtree
+  ```
 - [RF](#rf)
+  ```bash
+   --model=rf
+  ```
 - [NB](#nb)
+  ```bash
+   --model={gnb or mnb}
+  ```
 - [K-NN](#knn)
+  ```bash
+   --model=knn
+  ```
 - [Ada](#ada)
+  ```bash
+   --model=ada
+  ```
 - [DA](#da)
+  ```bash
+   --model={lda or qda}
+  ```
 - [SVM](#svm)
+  ```bash
+   --model=svm
+  ```
 - [Voting](#voting)
+  ```bash
+   --model=voting
+  ```
 - [Bagging](#bagging)
+  ```bash
+   --model=bagging
+  ```
 
 <hr>
 

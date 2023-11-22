@@ -1,6 +1,6 @@
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.model_selection import train_test_split
-from utils import model_evaluation, reg_model_evaluation
+from utils.evaluation import model_evaluation, reg_model_evaluation
 
 
 def r_knn(data, target, k=3):
