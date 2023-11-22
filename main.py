@@ -7,6 +7,10 @@ import Algorithm.KNN as knn
 import Algorithm.Ada as ada
 import Algorithm.DA as da
 import Algorithm.SVM as svm
+import Algorithm.Votting as votting
+
+from sklearn.svm import SVC, SVR
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 
 if __name__ == "__main__":
     # Heart failure prediction data (Classification)
@@ -65,7 +69,21 @@ if __name__ == "__main__":
     # print(quad_da)
 
     # SVM
-    reg_svm = svm.r_svm(wine_X, wine_y)
-    class_svm = svm.c_svm(heart_X, heart_y)
-    print(reg_svm)
-    print(class_svm)
+    # reg_svm = svm.r_svm(wine_X, wine_y)
+    # class_svm = svm.c_svm(heart_X, heart_y)
+    # print(reg_svm)
+    # print(class_svm)
+
+    # Votting
+    r_vote = votting.r_votting(wine_X, wine_y,
+                               est=[
+                                   ('SVM', SVR()),
+                                   ('KNN', KNeighborsRegressor())
+                               ])
+    c_vote = votting.c_votting(heart_X, heart_y,
+                               est=[
+                                   ('SVM', SVC()),
+                                   ('KNN', KNeighborsClassifier())
+                               ])
+    print(r_vote)
+    print(c_vote)
