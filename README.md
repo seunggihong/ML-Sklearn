@@ -24,7 +24,7 @@ Study for Scikit-learn Machine learing
 
 <hr>
 
-## Machine
+## Algorithm
 
 - [D-Tree](#dtree)
 - [RF](#rf)

@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import ML.DTree as dt
-import ML.RF as rf
-import ML.NB as nb
-import ML.KNN as knn
+import Algorithm.DTree as dt
+import Algorithm.RF as rf
+import Algorithm.NB as nb
+import Algorithm.KNN as knn
 
 
 if __name__ == "__main__":
