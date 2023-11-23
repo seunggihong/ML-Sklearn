@@ -16,62 +16,29 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - Regression
 
-  - <a href='https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009'>Red Wine Quality</a>
+  - [Red Wine Quality](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
 
 - Classification
 
-  - <a href='https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction'>Heart Failure Prediction</a>
-
-<hr>
-
-## Usage
-
-```bash
-$ python3 main.py
-                --problem={regression or classification}
-                --model={ALGORITHM_NAME}
-```
+  - [Heart Failure Prediction](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
 
 <hr>
 
 ## Algorithm
 
 - [D-Tree](#dtree)
-  ```bash
-   --model=dtree
-  ```
 - [RF](#rf)
-  ```bash
-   --model=rf
-  ```
 - [NB](#nb)
-  ```bash
-   --model={gnb or mnb}
-  ```
+  - Gaussian Naive Bayes
+  - Multinomial Naive Bayes
 - [K-NN](#knn)
-  ```bash
-   --model=knn
-  ```
 - [Ada](#ada)
-  ```bash
-   --model=ada
-  ```
 - [DA](#da)
-  ```bash
-   --model={lda or qda}
-  ```
+  - Linear Discriminant Analysis
+  - Quadratic Discriminant Analysis
 - [SVM](#svm)
-  ```bash
-   --model=svm
-  ```
 - [Voting](#voting)
-  ```bash
-   --model=voting
-  ```
 - [Bagging](#bagging)
-  ```bash
-   --model=bagging
-  ```
 
 <hr>
 
@@ -79,102 +46,67 @@ $ python3 main.py
 
 ### D-Tree **_(Decision Tree)_**
 
-```python
-# Regression
-def r_decision_tree(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [DTree.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/DTree.py)
 
-    model = DecisionTreeRegressor()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_decision_tree(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = DecisionTreeClassifier()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  "dtree": { "max_depth": [1, 2, 3, 4, 5], "min_samples_split": [2, 3] }
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=dtree
+  ```
 
 <hr>
 <a name='rf'></a>
 
 ### RF **_(Random Forest)_**
 
-```python
-# Regression
-def r_random_forest(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [RF.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/RF.py)
 
-    model = RandomForestRegressor()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_random_forest(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = RandomForestClassifier()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  "rf": {
+        "n_estimators": [10, 100],
+        "max_depth": [6, 8, 10, 12],
+        "min_samples_leaf": [8, 12, 18],
+        "min_samples_split": [8, 16, 20]
+      }
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=rf
+  ```
 
 <hr>
 
 <a name='nb'></a>
 
-### NB
+### NB **_(Naive Bayes)_**
+
+- **_Code_** [NB.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/NB.py)
 
 **_Gaussian Naive Bayes(GNB)_**
 
-```python
-def gaussian_nb(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = GaussianNB()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob=class --model=gnb
+  ```
 
 **_Multinomial Naive Bayes(MNB)_**
 
-```python
-def multinomial_nb(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = MultinomialNB()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob=class --model=mnb
+  ```
 
 <hr>
 
@@ -182,33 +114,16 @@ def multinomial_nb(data, target):
 
 ### K-NN **_(K Nearest Neighbors)_**
 
-```python
-# Regression
-def r_knn(data, target, k=3):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [KNN.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/KNN.py)
 
-    model = KNeighborsRegressor(n_neighbors=k)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_knn(data, target, k=3):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = KNeighborsClassifier(n_neighbors=k)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=knn
+  ```
 
 <hr>
 
@@ -216,33 +131,16 @@ def c_knn(data, target, k=3):
 
 ### Ada **_(Adaptive Boosting)_**
 
-```python
-# Regression
-def r_ada(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [Ada.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/Ada.py)
 
-    model = AdaBoostRegressor()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_ada(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = AdaBoostClassifier()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=ada
+  ```
 
 <hr>
 
@@ -250,35 +148,29 @@ def c_ada(data, target):
 
 ### DA **_(Discriminant Analysis)_**
 
+- **_Code_** [DA.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/DA.py)
+
 **_Linear Discriminant Analysis(LDA)_**
 
-```python
-def lda(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = LinearDiscriminantAnalysis()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob=class --model=lda
+  ```
 
 **_Quadratic Discriminant Analysis(QDA)_**
 
-```python
-def qda(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = QuadraticDiscriminantAnalysis()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob=class --model=qda
+  ```
 
 <hr>
 
@@ -286,33 +178,20 @@ def qda(data, target):
 
 ### SVM **_(Support Vector Machine)_**
 
-```python
-# Regression
-def r_svm(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [SVM.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/SVM.py)
 
-    model = SVR(C=10, epsilon=0.2)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_svm(data, target):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = SVC(C=10, kernel='linear')
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  "svm": {
+        "C": [0.1, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4],
+        "kernel": ["linear", "rbf"],
+        "gamma": [0.1, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4]
+      }
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=svm
+  ```
 
 <hr>
 
@@ -320,33 +199,16 @@ def c_svm(data, target):
 
 ### Voting
 
-```python
-# Regression
-def r_votting(data, target, est, jobs=1):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [Voting.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/Voting.py)
 
-    model = VotingRegressor(estimators=est, n_jobs=jobs)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_votting(data, target, est, voting='hard'):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = VotingClassifier(estimators=est, voting=voting)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=voting
+  ```
 
 <hr>
 
@@ -354,36 +216,19 @@ def c_votting(data, target, est, voting='hard'):
 
 ### Bagging
 
-```python
-# Regression
-def r_bagging(data, target, est):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
+- **_Code_** [Bagging.py](https://github.com/seunggihong/ML-Sklearn/blob/main/Algorithm/Bagging.py)
 
-    model = BaggingRegressor(estimator=est)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    score = reg_model_evaluation(y_test, y_predict)
-
-    return score
-```
-
-```python
-# Classification
-def c_bagging(data, target, est):
-    x_train, x_test, y_train, y_test = train_test_split(data, target)
-
-    model = BaggingClassifier(estimator=est)
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
-
-    evaluate = model_evaluation(y_test, y_predict)
-
-    return evaluate
-```
+- **_Hyper parameters_**
+  ```json
+  Not yet
+  ```
+- **_Usage_**
+  ```bash
+  $ python3 main.py --prob={reg or class} --model=bagging
+  ```
 
 <hr>
 
 ## Reference
 
-- <a href='https://scikit-learn.org/stable/user_guide.html'>scikit-learn docs</a>
+- https://scikit-learn.org/stable/user_guide.html
