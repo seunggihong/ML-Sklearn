@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from utils.evaluation import model_evaluation, reg_model_evaluation
 
 
-def r_votting(data, target, params, est, jobs=1):
+def r_voting(data, target, params, est, jobs=1):
     x_train, x_test, y_train, y_test = train_test_split(data, target)
 
     model = VotingRegressor(estimators=est, n_jobs=jobs)
@@ -18,7 +18,7 @@ def r_votting(data, target, params, est, jobs=1):
     return score, estimator
 
 
-def c_votting(data, target, params, est, voting='hard'):
+def c_voting(data, target, params, est, voting='hard'):
     x_train, x_test, y_train, y_test = train_test_split(data, target)
 
     model = VotingClassifier(estimators=est, voting=voting)

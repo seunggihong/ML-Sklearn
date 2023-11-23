@@ -1,5 +1,5 @@
 from Algorithm.Bagging import r_bagging, c_bagging
-from Algorithm.Votting import r_votting, c_votting
+from Algorithm.Voting import r_voting, c_voting
 from Algorithm.SVM import r_svm, c_svm
 from Algorithm.DA import lda, qda
 from Algorithm.Ada import r_ada, c_ada
@@ -44,7 +44,7 @@ def select_model(model, problem, parmas, est=None):
         elif model == 'svm':
             return r_svm(data, target, parmas)
         elif model == 'voting':
-            return r_votting(data, target, parmas, est)
+            return r_voting(data, target, parmas, est)
         elif model == 'bagging':
             return r_bagging(data, target, parmas, est)
         else:
@@ -70,7 +70,7 @@ def select_model(model, problem, parmas, est=None):
         elif model == 'svm':
             return c_svm(data, target, parmas)
         elif model == 'voting':
-            return c_votting(data, target, parmas, est)
+            return c_voting(data, target, parmas, est)
         elif model == 'bagging':
             return c_bagging(data, target, parmas, est)
         else:
