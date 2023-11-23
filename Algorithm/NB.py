@@ -1,27 +1,33 @@
 from sklearn.naive_bayes import GaussianNB, MultinomialNB
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from utils.evaluation import model_evaluation
 
 
-def gaussian_nb(data, target):
+def gaussian_nb(data, target, params):
     x_train, x_test, y_train, y_test = train_test_split(data, target)
 
     model = GaussianNB()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
+    grid_search = GridSearchCV(model, param_grid=params)
+    grid_search.fit(x_train, y_train)
+    y_predict = grid_search.predict(x_test)
+
+    estimator = grid_search.best_estimator_
 
     evaluate = model_evaluation(y_test, y_predict)
 
-    return evaluate
+    return evaluate, estimator
 
 
-def multinomial_nb(data, target):
+def multinomial_nb(data, target, params):
     x_train, x_test, y_train, y_test = train_test_split(data, target)
 
     model = MultinomialNB()
-    model.fit(x_train, y_train)
-    y_predict = model.predict(x_test)
+    grid_search = GridSearchCV(model, param_grid=params)
+    grid_search.fit(x_train, y_train)
+    y_predict = grid_search.predict(x_test)
+
+    estimator = grid_search.best_estimator_
 
     evaluate = model_evaluation(y_test, y_predict)
 
-    return evaluate
+    return evaluate, estimator

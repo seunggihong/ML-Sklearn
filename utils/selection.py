@@ -30,48 +30,48 @@ def heart_data():
     return heart_X, heart_y
 
 
-def select_model(model, problem, est=None):
-    if problem == 'regression':
+def select_model(model, problem, parmas, est=None):
+    if problem == 'reg':
         data, target = wine_data()
         if model == 'dtree':
-            return r_decision_tree(data, target)
+            return r_decision_tree(data, target, parmas)
         elif model == 'rf':
-            return r_random_forest(data, target)
+            return r_random_forest(data, target, parmas)
         elif model == 'knn':
-            return r_knn(data, target)
+            return r_knn(data, target, parmas)
         elif model == 'ada':
-            return r_ada(data, target)
+            return r_ada(data, target, parmas)
         elif model == 'svm':
-            return r_svm(data, target)
+            return r_svm(data, target, parmas)
         elif model == 'voting':
-            return r_votting(data, target, est)
+            return r_votting(data, target, parmas, est)
         elif model == 'bagging':
-            return r_bagging(data, target, est)
+            return r_bagging(data, target, parmas, est)
         else:
             return 0
-    elif problem == 'classification':
+    elif problem == 'class':
         data, target = heart_data()
         if model == 'dtree':
-            return c_decision_tree(data, target)
+            return c_decision_tree(data, target, parmas)
         elif model == 'rf':
-            return c_random_forest(data, target)
+            return c_random_forest(data, target, parmas)
         elif model == 'gnb':
-            return gaussian_nb(data, target)
+            return gaussian_nb(data, target, parmas)
         elif model == 'mnb':
-            return multinomial_nb(data, target)
+            return multinomial_nb(data, target, parmas)
         elif model == 'knn':
-            return c_knn(data, target)
+            return c_knn(data, target, parmas)
         elif model == 'ada':
-            return c_ada(data, target)
+            return c_ada(data, target, parmas)
         elif model == 'lda':
-            return lda(data, target)
+            return lda(data, target, parmas)
         elif model == 'qda':
-            return qda(data, target)
+            return qda(data, target, parmas)
         elif model == 'svm':
-            return c_svm(data, target)
+            return c_svm(data, target, parmas)
         elif model == 'voting':
-            return c_votting(data, target, est)
+            return c_votting(data, target, parmas, est)
         elif model == 'bagging':
-            return c_bagging(data, target, est)
+            return c_bagging(data, target, parmas, est)
         else:
             return 0
