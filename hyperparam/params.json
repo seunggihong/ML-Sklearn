@@ -9,8 +9,15 @@
         "min_samples_split": [8, 16, 20]
       },
       "knn": {},
-      "ada": {},
-      "svm": {},
+      "ada": {
+        "n_estimators": [50, 100, 150],
+        "learning_rate": [0.01, 0.1]
+      },
+      "svm": {
+        "C": [0.1, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4],
+        "kernel": ["linear", "rbf"],
+        "gamma": [0.1, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4]
+      },
       "votting": {},
       "bagging": {}
     },
@@ -27,7 +34,10 @@
       "lda": {},
       "qda": {},
       "knn": {},
-      "ada": {},
+      "ada": {
+        "n_estimators": [50, 100, 150],
+        "learning_rate": [0.01, 0.1]
+      },
       "svm": {
         "C": [0.1, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4],
         "kernel": ["linear", "rbf"],
