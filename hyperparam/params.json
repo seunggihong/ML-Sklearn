@@ -8,7 +8,10 @@
         "min_samples_leaf": [8, 12, 18],
         "min_samples_split": [8, 16, 20]
       },
-      "knn": {},
+      "knn": {
+        "n_neighbors": [1, 2, 3, 4, 5],
+        "weights": ["uniform", "distance"]
+      },
       "ada": {
         "n_estimators": [50, 100, 150],
         "learning_rate": [0.01, 0.1]
@@ -29,11 +32,16 @@
         "min_samples_leaf": [8, 12, 18],
         "min_samples_split": [8, 16, 20]
       },
-      "gnb": {},
+      "gnb": {
+        "var_smoothing": [1e-2, 1e-3, 1e-4, 1e-5, 1e-6]
+      },
       "mnl": {},
       "lda": {},
       "qda": {},
-      "knn": {},
+      "knn": {
+        "n_neighbors": [1, 2, 3, 4, 5],
+        "weights": ["uniform", "distance"]
+      },
       "ada": {
         "n_estimators": [50, 100, 150],
         "learning_rate": [0.01, 0.1]

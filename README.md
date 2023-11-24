@@ -90,7 +90,9 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - **_Hyper parameters_**
   ```json
-  Not yet
+  "gnb": {
+        "var_smoothing": [1e-2, 1e-3, 1e-4, 1e-5, 1e-6]
+      }
   ```
 - **_Usage_**
   ```bash
@@ -118,7 +120,10 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - **_Hyper parameters_**
   ```json
-  Not yet
+  "knn": {
+        "n_neighbors": [1, 2, 3, 4, 5],
+        "weights": ["uniform", "distance"]
+      }
   ```
 - **_Usage_**
   ```bash
