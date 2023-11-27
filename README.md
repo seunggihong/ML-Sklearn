@@ -103,7 +103,9 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - **_Hyper parameters_**
   ```json
-  Not yet
+  "mnb": {
+        "var_smoothing": [1e-2, 1e-3, 1e-4, 1e-5, 1e-6]
+      }
   ```
 - **_Usage_**
   ```bash
@@ -140,7 +142,10 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - **_Hyper parameters_**
   ```json
-  Not yet
+  "ada": {
+        "n_estimators": [50, 100, 150],
+        "learning_rate": [0.01, 0.1]
+      }
   ```
 - **_Usage_**
   ```bash
@@ -159,7 +164,10 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - **_Hyper parameters_**
   ```json
-  Not yet
+  "lda": {
+        "n_components": [6, 8, 10, 12],
+        "learning_decay": [0.75, 0.8, 0.85]
+      }
   ```
 - **_Usage_**
   ```bash
