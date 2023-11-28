@@ -4,7 +4,7 @@
 
 ## ML-Sklearn
 
-This repository uses scikit-learn to implement regression and classification models for machine learning algorithms. Then, evaluate each model and save and compare evaluation metrics. The data used in the regression analysis uses kaggle's 'red wine quilty', and the data used in the classification problem uses kaggle's 'Heart Failure Prediction'.
+This repository uses scikit-learn to implement regression and classification models for machine learning algorithms. Then, evaluate each model and save and compare evaluation metrics. The data used in the regression analysis uses kaggle's 'red wine quilty', and the data used in the classification problem uses kaggle's 'Heart Failure Prediction'. Additionally, I created a code showing how to find optimal hyperparameters using 'GridSearchCV'.
 
 <hr>
 
