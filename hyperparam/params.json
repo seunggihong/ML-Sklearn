@@ -42,7 +42,9 @@
         "n_components": [6, 8, 10, 12],
         "learning_decay": [0.75, 0.8, 0.85]
       },
-      "qda": {},
+      "qda": {
+        "reg_param": [0.1, 0.2, 0.3, 0.4, 0.5]
+      },
       "knn": {
         "n_neighbors": [1, 2, 3, 4, 5],
         "weights": ["uniform", "distance"]

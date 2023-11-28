@@ -178,7 +178,9 @@ This repository uses scikit-learn to implement regression and classification mod
 
 - **_Hyper parameters_**
   ```json
-  Not yet
+  "qda": {
+        "reg_param": [0.1, 0.2, 0.3, 0.4, 0.5]
+      }
   ```
 - **_Usage_**
   ```bash
