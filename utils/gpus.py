@@ -1,4 +1,5 @@
 import tensorflow as tf
 
-gpus = tf.config.experimental.list_logical_devices('GPU')
+tf.debugging.set_log_device_placement(True)
+gpus = tf.config.list_physical_devices('GPU')
 print(len(gpus))
